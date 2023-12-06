@@ -31,7 +31,7 @@ This dataset is a subset  of a 3-million records source from Kaggle. The size is
 During my initial data exploration, three-quarters of the 426k records had to be scrapped due to duplicates and data anomalies. For example, 40% of the transactions had duplicated Vehicle Identification Numbers, a 2005 Toyota Tundra was priced at 3.7 billion, and cars classified as in 'new' condition had an average age of 6.5 years and 54k odometer readings. Great efforts have been taken to remove apparent and not-so-apparent data anomalies before real analysis begins.
 
 ## Classic, Vintage, and Antique Cars
-The prices of classic, vintage, and antique cars are known to depend on the scarcity of these cars. However, since the dataset does not provide that information, they are excluded from this analysis.
+The prices of classic, vintage, and antique cars are known to depend on the scarcity of these cars. However, since the dataset does not provide that information, they are excluded from this analysis. Buses, salvaged cars, and auto parts are also exlcuded from this analysis.
 
 ## Car Sales Price by Car Age
 ![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/price_by_type.png)
@@ -69,10 +69,13 @@ Overall, the estiimator has an margin of error of 36.3%.
 ![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/enhanced_6-actual_vs_predicted.png)
 
 ### Confidence Level
-It's forecasting sweet spot between $7,000 and $40,000 has a much better margin of error of 24%. The forecasts (green dots) lying outside the outtermost conture are certainly outliers and should not be trusted. As a forecasts lands towards and inside the innermost countour, it has a higher confidence it's closer to the actual sales price.
+It's forecasting sweet spot between $7,000 and $40,000 has a much better margin of error of 24%. 
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/6_vs_kde_modified.png)
+The forecasts (green dots) lying outside the outtermost conture are certainly outliers and should not be trusted. As a forecasts approching the innermost countour, it has a higher confidence it's closer to the actual sales price.
 
 ### All Things Considered
-A more comprehensice 17-feature estimator that considers additional factors such as type (truck, sedan, etc), fuel type, and all other manufacturers only improve the margin of error by 2.5%. The relative strengths influncing car prices of these features are shown below.
+A more comprehensice 16-feature estimator that considers additional factors such as type (truck, sedan, etc), fuel type, and all other manufacturers only improve the margin of error by 2.5%. The relative strengthsinfluncing car prices, per unit change, of these features are shown below.
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/original_16_feature_weights.png)
 
 ## Other Factors
 Other than the factors identified above, the car's condition, title status, and other features are believed to affect a car's price. However, due to quality issues and anomalies in the dataset, they are not used to make inferences or forecasts. For example, based on the dataset, the average age of 'new' cars is 6.5 years old, with 54k odometer readings. Those data anomalies had to be removed, and the conditions of vehicles could not be trusted and had to be ignored. Some unmeasured factors, such as horsepower and scarcity of vintage and antique cars, are not part of the dataset.
