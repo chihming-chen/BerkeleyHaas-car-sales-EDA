@@ -31,11 +31,11 @@ This dataset is a subset  of a 3-million records source from Kaggle. The size is
 During my initial data exploration, three-quarters of the 426k records had to be scrapped due to duplicates and data anomalies. For example, 40% of the transactions had duplicated Vehicle Identification Numbers, a 2005 Toyota Tundra was priced at 3.7 billion, and cars classified as in 'new' condition had an average age of 6.5 years and 54k odometer readings. Great efforts have been taken to remove apparent and not-so-apparent data anomalies before real analysis begins.
 
 ## Classic, Vintage, and Antique Cars
-The prices of classic, vintage, and antique cars are known to depend on the scarcity of these cars. However, since the dataset does not provide that information, they are excluded from this analysis. Buses, salvaged cars, and auto parts are also excluded from this analysis.
+As can be seen below, in general, the car price drops as it ages, until it's about 25 years old when it becomes a collectible. The prices of classic, vintage, and antique cars are known to depend on the scarcity of these cars. However, since the dataset does not provide that information, they are excluded from this analysis. Buses, salvaged cars, and auto parts are also excluded from this analysis.
 
-## Car Sales Price by Car Age
+## Car Sales Price by Age of a Car
 
-![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/price_by_type.png)
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/age_vs_price.png)
 ## Average Sale Price by Car Manufacturers
 
 ![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/price_by_manufacturer.png)
