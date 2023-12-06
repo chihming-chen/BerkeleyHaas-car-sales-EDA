@@ -34,32 +34,45 @@ During my initial data exploration, three-quarters of the 426k records had to be
 The prices of classic, vintage, and antique cars are known to depend on the scarcity of these cars. However, since the dataset does not provide that information, they are excluded from this analysis.
 
 ## Car Sales Price by Car Age
-(plot)
-
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/price_by_type.png)
 ## Average Sale Price by Car Manufacturers
-(plot)
 
-## Average Sale Price by Car Types
-(plot)
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/price_by_manufacturer.png)
+
+  ## Average Sale Price by Car Types
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/price_by_type.png)
 
 ## Average Sale Price by Fuel Types
-(plot)
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/price_by_fuel.png)
 
 ## Average Sale Price by Drive Types
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/price_by_drive.png)
 
 ## What Drives the Price of a Used Car?
 
 ### Key Insights
-The dataset contains 16 attributes of a car sales transaction, including the features and specs of the car and where the transaction occurred. All attributes affect the price of a used car to some extent. Six factors were identified as key influencers on the sale price - the Ferrari prestige, diesel engine premium, front-wheel-drive disadvantage, cylinder horsepower, and age/mileage wear-and-tear. 
+The dataset contains 16 attributes of a car sales transaction, including the features and specs of the car and where the transaction occurred. All attributes affect the price of a used car to some extent. Six factors were identified as key drivers influncing the sale price - a car's age & mileage, cylinder horsepower, diesel engine premium, front-wheel-drive disadvantage,  and the brand prestige.
 
 ### Quantitative Analysis
-Several linear regression models with LASSO regularization were built for the quantitative analysis after painstaking data cleansing. These factors were identified as key influencers on the price of used cars. In order of importance: 
-1. The Ferrari Brand: Ferrari cars were sold at prices significantly higher. On average, a Ferrari is priced $125,000 higher than other brands, with all other car features and conditions being identical.
-2. Diesel engine premium: Cars equipped with diesel engines tend to have a higher value, approximately $13,000 more than cars without this feature.
-3. Drive Type: Front-wheel drive cars have a slightly lower average price than 4-wheel or rear-wheel drive counterparts. When other features remain constant, a front-wheel-drive car was sold for $4,100 less.
-4. Cylinder's horsepower: Each additional cylinder in a car contributes approximately $2,450 to the car's price when other factors remain constant. More cylinders usually translate to a higher horsepower and make a car more valuable. Since the dataset does not come with the horsepower specs of cars, the number of cylinders becomes a good approximator.
-5. Age of the Car: On average, the price of a car reduces by $1,116 for each year it ages, assuming other features remain constant.
-6. Odometer Reading: The mileage or odometer reading also plays a role in price determination. The car's value decreases by $0.06 for each mile driven, much less than I expected. It's likely some un-caught data anomalies have yet to be discovered.
+Several mathematical models were built for the quantitative analysis and estimattion after painstaking data cleansing. These factors were identified as key influencers on the price of used cars.
+1. Age of the Car: On average, the price of a car reduces by $1,116 for each year it ages, assuming other features remain constant.
+2. Odometer Readings: The odometer reading or mileages also plays a role in price determination. The car's value decreases by $0.06 for each mile driven, much less than I expected. It's likely some un-caught data anomalies have yet to be discovered.
+3. Cylinder's horsepower: Each additional cylinder in a car contributes approximately $2,450 to the car's price when other factors remain constant. More cylinders usually translate to a higher horsepower and make a car more valuable. Since the dataset does not come with the horsepower specs of cars, the number of cylinders becomes a good approximator.
+4. Diesel engine premium: Cars equipped with diesel engines tend to have a higher value, approximately $13,000 more than cars without this feature.
+5. Drive Type: Front-wheel drive cars have a slightly lower average price than 4-wheel or rear-wheel drive counterparts. When other features remain constant, a front-wheel-drive car was sold for $4,100 less.
+6. Last but not least, the Ferrari prestidge: Ferrari cars were sold at prices significantly higher. On average, a Ferrari is priced $125,000 higher than other brands, with all other car features and conditions being identical.
 
-### Other Factors
+## Performance of the Estimator
+
+### Margin of Errors
+Overall, the estiimator has an margin of error of 36.3%. 
+![image](https://github.com/chihming-chen/BerkeleyHaas-car-sales-EDA/blob/main/images/enhanced_6-actual_vs_predicted.png)
+
+### Confidence Level
+It's forecasting sweet spot between $7,000 and $40,000 has a much better margin of error of 24%. The forecasts (green dots) lying outside the outtermost conture are certainly outliers and should not be trusted. As a forecasts lands towards and inside the innermost countour, it has a higher confidence it's closer to the actual sales price.
+
+### All Things Considered
+A more comprehensice 17-feature estimator that considers additional factors such as type (truck, sedan, etc), fuel type, and all other manufacturers only improve the margin of error by 2.5%. The relative strengths influncing car prices of these features are shown below.
+
+## Other Factors
 Other than the factors identified above, the car's condition, title status, and other features are believed to affect a car's price. However, due to quality issues and anomalies in the dataset, they are not used to make inferences or forecasts. For example, based on the dataset, the average age of 'new' cars is 6.5 years old, with 54k odometer readings. Those data anomalies had to be removed, and the conditions of vehicles could not be trusted and had to be ignored. Some unmeasured factors, such as horsepower and scarcity of vintage and antique cars, are not part of the dataset.
